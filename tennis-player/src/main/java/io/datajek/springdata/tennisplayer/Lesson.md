@@ -1,6 +1,8 @@
 
 # Spring JDBC 
 
+# CRUD Operation using JDBC
+
 ### JPA
 1. JPA stands for Java Persistence API (Application Programming Interface). 
 2. Spring Boot JPA is a Java specification for managing relational data in 
@@ -339,4 +341,43 @@ spring.jpa.hibernate.ddl-auto=none
 spring.datasource.url = jdbc:mysql://localhost:3306/movie_example
 spring.datasource.username = demo
 spring.datasource.password = demo
+```
+
+# Spring JPA
+JDBC requires the developer to write the queries, map values to the query, pass a
+set of parameters to execute the query, and map rows of the result set to a bean.
+For simple queries, this task is manageable, but in large applications with hundreds
+of tables, the queries become complex.
+Java Persistence API (JPA) is designed to ease that task.
+
+1. JPA challenges the notion of writing queries and mapping the data back.
+2. It creates entities that are Java objects which map to a row in a database table.
+3. JPA creates a schema based on the entities and defines relationships between
+   entities.
+4. The Object-Relational Mapping (ORM) layer maps the objects to a database table.
+5. Using JPA, we can map a Java class or bean to a table. The members of the class
+   map columns in the table. When this mapping is defined, JPA can write queries on
+   its own. It takes the responsibility of creating and executing queries for CRUD
+   operations. This is due to the fact that the operations performed on a
+   database are identical and can be generalized. The types of objects change
+   based on the database schema but the operations remain the same.
+6. JPA Implementations
+   1. Hibernate, the most popular ORM framework in the last decade, prompted the
+      creation of the JPA standard.
+   2. JPA is a standard of Object Relational Mapping. It is an interface that
+      defines a set of annotations for creating the object relational mapping.
+   3. There are numerous implementations of the JPA interface like Hibernate,
+      EclipseLink, Apache OpenJPA, etc.
+   4. Hibernate is by far the most popular implementation of JPA. It is a
+      lightweight framework and can easily be integrated with Spring.
+   5. The benefit of using JPA instead of Hibernate is that JPA is a standard
+      and one can switch to any other implementation later.
+
+To use Spring Data JPA, we will add the starter JPA dependency to the pom.xml file 
+as follows:
+```
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
 ```

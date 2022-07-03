@@ -1,3 +1,4 @@
+
 CREATE TABLE Player (
                         ID INTEGER NOT NULL,
                         Name VARCHAR(255) NOT NULL,
@@ -6,3 +7,4 @@ CREATE TABLE Player (
                         Titles INTEGER,
                         PRIMARY KEY (ID)
 );
+
